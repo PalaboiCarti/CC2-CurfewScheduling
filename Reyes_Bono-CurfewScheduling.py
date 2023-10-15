@@ -1,5 +1,5 @@
-#oct/15/2023 07:26
-#Seventh Commit owyeah
+#oct/15/2023 07:42
+#Eigth Commit hooooh
 
 districts = ["District 1", "District 2", "District 3", "District 4", "District 5", "District 6", "District 7", "District 8", "District 9"]
 
@@ -13,9 +13,9 @@ def get_name():
         print("<LastName>, <FirstName(s)> <MiddleInitial>.")
         name = input("Enter your name: ")
         if all(char.isalpha() or char.isspace() or char in "., " for char in name):
-            print("---------------------")
-            print(f"Entered name: {name}")
             while True:
+                print("---------------------")
+                print(f"Entered name: {name}")
                 confirmation = input("Please confirm if the credentials are correct (y/n): ")
                 if confirmation == "y":
                     print("---------------------")
@@ -26,7 +26,6 @@ def get_name():
                     break  
                 else:
                     print("Invalid response. Please enter 'y' or 'n'.")
-                    print("---------------------")
         else:
             print("Error: Invalid credentials. Please try again.")
             print("---------------------")
@@ -49,7 +48,6 @@ def get_age():
                     break  
                 else:
                     print("Invalid response. Please enter 'y' or 'n'.")
-                    print("---------------------")
         except ValueError:
             print("Invalid input")
             print("---------------------")
@@ -72,7 +70,6 @@ def get_district():
                     break  
                 else:
                     print("Invalid response. Please enter 'y' or 'n'.")
-                    print("---------------------")
         else:
             print("Error : Unidentified district.")
             print("Please select one of the following districts:")
@@ -102,14 +99,25 @@ def display_profile():
     
     print(f"NAME : {name}")
     print(f"AGE : {age}")
-    
+    print(f"ALLOTED SCHEDULES:")
     if isinstance(schedule, tuple) and blue_marketday in schedule and blue_curfew in schedule:
-        print(f"==> Schedules:")
         print(f"    -{blue_marketday}")
         print(f"    -{blue_curfew}")
     else:
-        print(f"==> Schedules:")
         print(f"    -{blue_marketday}")
+    print(f"    -Sunday Curfew: 21:00 - 06:00")
+    def retry():
+        while True:
+            response = input("Do you want to run the profile setup again? (y/n): ")
+            if response == "y":
+                display_profile()
+            elif response == "n":
+                print("Thank you for using CZSS.")
+                print("Exiting program..")
+                break
+            else:
+                print("Invalid response. Please enter 'y' or 'n'.")
+    retry()
 
 
 display_profile()
