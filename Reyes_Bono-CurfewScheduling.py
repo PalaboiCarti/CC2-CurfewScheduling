@@ -1,17 +1,13 @@
-#oct/15/2023 04:59
-#second commit lol
+#oct/15/2023 05:11
+#third commit lmfaooo
 
 def get_age():
     while True:
-        age_str = input("Enter age: ")
-        if age_str.isdigit():
-            age = int(age_str)
-            if age > 0:
-                return age
-            else:
-                print("Error: Your age can't be negative. Try again.")
-        else:
-            print("Error: Your age should be a whole number. Please try again.")
+        try:
+            age = int(input("Enter age: "))
+            return age
+        except ValueError:
+            print("Invalid input")
 
 def get_district(age):
     blue = ["District 1", "District 3", "District 5"]
@@ -36,4 +32,7 @@ def display_profile():
 
     print(f"==> I am {age} years old.")
     print(f"==> Schedules: {district}.")
+
 display_profile()
+
+
