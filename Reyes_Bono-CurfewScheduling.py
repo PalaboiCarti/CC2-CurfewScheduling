@@ -1,5 +1,7 @@
-#oct/15/2023 05:11
-#third commit lmfaooo
+#oct/15/2023 05:18
+#FOURTH COMMIT MOTHERFUCKER WAHAHAHAHAHAHHA HELL YEAH
+
+districts = ["District 1", "District 2", "District 3", "District 4", "District 5", "District 6", "District 7", "District 8", "District 9"]
 
 def get_age():
     while True:
@@ -8,11 +10,12 @@ def get_age():
             return age
         except ValueError:
             print("Invalid input")
-
+  
+#curfew generator
 def get_district(age):
-    blue = ["District 1", "District 3", "District 5"]
-    red = ["District 2", "District 4", "District 6"]
-    green = ["District 7" "District 8", "District 9"]
+    blue = [districts[0], districts[2], districts[4]]
+    red = [districts[1], districts[3], districts[5]]
+    green = [districts[6], districts[7], districts[8]]
     
     blue_marketday = "MarketDay : Tue, Sat. 06:00 - 19:00"
     blue_curfew = "Curfew: Mon, Tue, Fri. 10:00 - 05:00"
@@ -34,5 +37,7 @@ def display_profile():
     print(f"==> Schedules: {district}.")
 
 display_profile()
+
+
 
 
