@@ -1,5 +1,5 @@
-#oct/15/2023 08:27
-#TENTH COMMIT WE EATIN GUD
+#oct/15/2023 08:59
+#Eleventh commit, my stupid ass forgot the display color thingy BUT EYOOOO WE DONE LOL
 
 districts = ["District 1", "District 2", "District 3", "District 4", "District 5", "District 6", "District 7", "District 8", "District 9"]
 
@@ -22,10 +22,11 @@ Version 1.0
 
  ██████╗███████╗███████╗███████╗
 ██╔════╝╚══███╔╝██╔════╝██╔════╝
-██║        ███╔╝  ██████╗███████╗
-██║      ███╔╝   ╚════██║╚════██║
+██║       ███╔╝ ███████╗███████╗
+██║      ███╔╝  ╚════██║╚════██║
 ╚██████╗███████╗███████║███████║
  ╚═════╝╚══════╝╚══════╝╚══════╝
+                                
                 City Z Schedule System™
                                 """)
 
@@ -136,16 +137,27 @@ def display_profile():
     district = get_district()
     print(f"NAME : {name}")
     print(f"AGE : {age}")
+    if district in red:
+        print(f"DISTRICT : RED")
+    elif district in blue:
+        print(f"DISTRICT : BLUE")
+    elif district in red:
+        print(f"DISTRICT : GREEN")
+    else:
+        print(f"DISTRICT : UNIDENTIFIED")
     print(f"ALLOTED SCHEDULES:")
     schedule = get_schedule(age, district)
     print(f"    -Sunday Curfew: 21:00 - 06:00")
     
     def retry():
         while True:
+            print("---------------------")
             response = input("Do you want to run the profile setup again? (y/n): ")
             if response == "y":
+                print("---------------------")
                 display_profile()
             elif response == "n":
+                print("---------------------")
                 print("Thank you for using CZSS.")
                 print("Exiting program..")
                 break
