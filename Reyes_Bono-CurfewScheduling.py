@@ -1,11 +1,20 @@
-#oct/15/2023 07:42
-#Eigth Commit hooooh
+#oct/15/2023 08:13
+#NINTH COMMIT I THINK IM DONE LMFAO
 
 districts = ["District 1", "District 2", "District 3", "District 4", "District 5", "District 6", "District 7", "District 8", "District 9"]
 
-blue_marketday = "MarketDays : Tue, Sat. 06:00 - 19:00"
-blue_curfew = "Curfew: Mon, Tue, Fri. 10:00 - 05:00"
+blue = [districts[0], districts[2], districts[4]]
+red = [districts[1], districts[3], districts[5]]
+green = [districts[6], districts[7], districts[8]]
+
 red_marketday = "MarketDays : Mon, Wed. 06:00 - 21:00"
+red_curfew = "Curfew: Mon, Wed, Sat. 20:00 - 05:00"
+
+blue_marketday = "MarketDays : Tue, Sat. 06:00 - 19:00"
+blue_curfew = "Curfew: Mon, Tue, Fri. 20:00 - 05:00"
+
+green_marketday = "Thur, Fri. 06:00 - 19:00"
+green_curfew = "Tue, Fri, Sat. 20:00 - 06:00"
 
 def get_name():
     while True:
@@ -52,7 +61,7 @@ def get_age():
             print("Invalid input")
             print("---------------------")
             
-#get district 
+
 def get_district():
     while True:
         district = input("Enter District: ")
@@ -72,40 +81,52 @@ def get_district():
                     print("Invalid response. Please enter 'y' or 'n'.")
         else:
             print("Error : Unidentified district.")
-            print("Please select one of the following districts:")
-            for district in districts:
-                print(f"    -{district}")
-  
+    
 #curfew generator
 def get_schedule(age, district):
-    blue = [districts[0], districts[2], districts[4]]
-    red = [districts[1], districts[3], districts[5]]
-    green = [districts[6], districts[7], districts[8]]
-    
     while True:
-        if district in blue:
+        if district in red:
             if age > 60 or age < 18:
-                return blue_marketday, blue_curfew
+                print(f"    -{red_marketday}")
+                print(f"    -{red_curfew}")
+                return
             else:
-                return blue_marketday
+                print(f"    -{red_marketday}")
+                return 
+                
+        elif district in blue:
+            if age > 60 or age < 18:
+                print(f"    -{blue_marketday}")
+                print(f"    -{blue_curfew}")
+                return
+            else:
+                print(f"    -{blue_marketday}")
+                return
+                
+        elif district in green:
+            if age > 60 or age < 18:
+                print(f"    -{green_marketday}")
+                print(f"    -{green_curfew}")
+                return
+            else:
+                print(f"    -{green_marketday}")
+                return 
+                
         else:
             print("Error: Invalid credentials. Please enter a registered district.")
+
+
 
 def display_profile():
     name = get_name()
     age = get_age()
     district = get_district()
-    schedule = get_schedule(age, district)
-    
     print(f"NAME : {name}")
     print(f"AGE : {age}")
     print(f"ALLOTED SCHEDULES:")
-    if isinstance(schedule, tuple) and blue_marketday in schedule and blue_curfew in schedule:
-        print(f"    -{blue_marketday}")
-        print(f"    -{blue_curfew}")
-    else:
-        print(f"    -{blue_marketday}")
+    schedule = get_schedule(age, district)
     print(f"    -Sunday Curfew: 21:00 - 06:00")
+    
     def retry():
         while True:
             response = input("Do you want to run the profile setup again? (y/n): ")
@@ -117,7 +138,7 @@ def display_profile():
                 break
             else:
                 print("Invalid response. Please enter 'y' or 'n'.")
+                
     retry()
-
 
 display_profile()
