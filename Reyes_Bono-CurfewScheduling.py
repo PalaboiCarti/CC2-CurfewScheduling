@@ -1,5 +1,5 @@
-#oct/15/2023 08:13
-#NINTH COMMIT I THINK IM DONE LMFAO
+#oct/15/2023 08:27
+#TENTH COMMIT WE EATIN GUD
 
 districts = ["District 1", "District 2", "District 3", "District 4", "District 5", "District 6", "District 7", "District 8", "District 9"]
 
@@ -15,6 +15,19 @@ blue_curfew = "Curfew: Mon, Tue, Fri. 20:00 - 05:00"
 
 green_marketday = "Thur, Fri. 06:00 - 19:00"
 green_curfew = "Tue, Fri, Sat. 20:00 - 06:00"
+
+print(f""" 
+15-10-2023
+Version 1.0
+
+ ██████╗███████╗███████╗███████╗
+██╔════╝╚══███╔╝██╔════╝██╔════╝
+██║        ███╔╝  ██████╗███████╗
+██║      ███╔╝   ╚════██║╚════██║
+╚██████╗███████╗███████║███████║
+ ╚═════╝╚══════╝╚══════╝╚══════╝
+                City Z Schedule System™
+                                """)
 
 def get_name():
     while True:
