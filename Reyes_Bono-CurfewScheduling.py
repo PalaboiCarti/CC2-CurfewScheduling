@@ -1,7 +1,8 @@
-#oct/15/2023 08:59
-#Eleventh commit, my stupid ass forgot the display color thingy BUT EYOOOO WE DONE LOL
+#oct/16/2023 11:14
+#12th commit XD
+#v1.1
 
-districts = ["District 1", "District 2", "District 3", "District 4", "District 5", "District 6", "District 7", "District 8", "District 9"]
+districts = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 blue = [districts[0], districts[2], districts[4]]
 red = [districts[1], districts[3], districts[5]]
@@ -26,9 +27,10 @@ Version 1.0
 ██║      ███╔╝  ╚════██║╚════██║
 ╚██████╗███████╗███████║███████║
  ╚═════╝╚══════╝╚══════╝╚══════╝
-                                
+
                 City Z Schedule System™
                                 """)
+
 
 def get_name():
     while True:
@@ -46,7 +48,7 @@ def get_name():
                 elif confirmation == "n":
                     print("Resubmit credentials.")
                     print("---------------------")
-                    break  
+                    break
                 else:
                     print("Invalid response. Please enter 'y' or 'n'.")
         else:
@@ -68,35 +70,44 @@ def get_age():
                 elif confirmation == "n":
                     print("Resubmit credentials.")
                     print("---------------------")
-                    break  
+                    break
                 else:
                     print("Invalid response. Please enter 'y' or 'n'.")
         except ValueError:
             print("Invalid input")
             print("---------------------")
-            
+
 
 def get_district():
     while True:
-        district = input("Enter District: ")
-        if district in districts:
-            while True:
-                print("---------------------")
-                print(f"Entered District: {district}")
-                confirmation = input("Please confirm if the credentials are correct (y/n): ")
-                if confirmation == "y":
+        print("Please enter your district number as an integer")
+        try:
+            district = int(input("District "))
+            if district in districts:
+                while True:
                     print("---------------------")
-                    return district
-                elif confirmation == "n":
-                    print("Resubmit credentials.")
-                    print("---------------------")
-                    break  
-                else:
-                    print("Invalid response. Please enter 'y' or 'n'.")
-        else:
-            print("Error : Unidentified district.")
-    
-#curfew generator
+                    print(f"Entered District: District {district}")
+                    confirmation = input("Please confirm if the credentials are correct (y/n): ")
+                    if confirmation == "y":
+                        print("---------------------")
+                        return district
+                    elif confirmation == "n":
+                        print("Resubmit credentials.")
+                        print("---------------------")
+                        break
+                    else:
+                        print("Invalid response. Please enter 'y' or 'n'.")
+            else:
+                print("Error : Unidentified district.")
+                print("Please select one of the following districts:")
+                for district in districts:
+                    print(f"    -{district}")
+        except ValueError:
+            print("Error: Input is not an integer. Please try again.")
+            print("---------------------")
+
+
+# curfew generator
 def get_schedule(age, district):
     while True:
         if district in red:
@@ -106,8 +117,8 @@ def get_schedule(age, district):
                 return
             else:
                 print(f"    -{red_marketday}")
-                return 
-                
+                return
+
         elif district in blue:
             if age > 60 or age < 18:
                 print(f"    -{blue_marketday}")
@@ -116,7 +127,7 @@ def get_schedule(age, district):
             else:
                 print(f"    -{blue_marketday}")
                 return
-                
+
         elif district in green:
             if age > 60 or age < 18:
                 print(f"    -{green_marketday}")
@@ -124,11 +135,10 @@ def get_schedule(age, district):
                 return
             else:
                 print(f"    -{green_marketday}")
-                return 
-                
+                return
+
         else:
             print("Error: Invalid credentials. Please enter a registered district.")
-
 
 
 def display_profile():
@@ -141,14 +151,14 @@ def display_profile():
         print(f"DISTRICT : RED")
     elif district in blue:
         print(f"DISTRICT : BLUE")
-    elif district in red:
+    elif district in green:
         print(f"DISTRICT : GREEN")
     else:
         print(f"DISTRICT : UNIDENTIFIED")
     print(f"ALLOTED SCHEDULES:")
     schedule = get_schedule(age, district)
     print(f"    -Sunday Curfew: 21:00 - 06:00")
-    
+
     def retry():
         while True:
             print("---------------------")
@@ -163,7 +173,8 @@ def display_profile():
                 break
             else:
                 print("Invalid response. Please enter 'y' or 'n'.")
-                
+
     retry()
+
 
 display_profile()
